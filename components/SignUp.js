@@ -12,46 +12,60 @@ import {
   ToastAndroid,
   Dimensions,
 } from 'react-native';
-
-import {Input, Divider} from 'react-native-elements';
+import {Input} from 'react-native-elements';
 
 let {height, width} = Dimensions.get('window');
-export default class SignIn extends React.Component {
+export default class SignUp extends React.Component {
   render() {
     return (
       <>
         <SafeAreaView style={style.container}>
           <StatusBar barStyle="dark-content" />
           <KeyboardAvoidingView behavior="padding" style={style.container}>
-            <TouchableWithoutFeedback style={style.container}>
+            <View style={style.container}>
               <View style={style.SignInContainer}>
-                <Text style={style.signInText}>Sign in</Text>
-                <Input
-                  containerStyle={{margin: 10}}
-                  label="Email"
-                  placeholder="eg example@xyz.co"
-                />
-                <Input
-                  containerStyle={{margin: 10}}
-                  label="Password"
-                  secureTextEntry={true}
-                  placeholder="**********"
-                />
-                <TouchableOpacity onPress={this.props.closeModel}>
+                <Text style={style.signInText}>Sign Up</Text>
+                <View style={style.formContainer}>
+                  <Input
+                    containerStyle={{margin: 10}}
+                    label="Full Name"
+                    placeholder="eg John Doe"
+                  />
+                  <Input
+                    containerStyle={{margin: 10}}
+                    label="Email"
+                    placeholder="eg example@xyz.co"
+                  />
+                  <Input
+                    containerStyle={{margin: 10}}
+                    label="Password"
+                    placeholder="**********"
+                  />
+                  <Input
+                    containerStyle={{margin: 10}}
+                    label="Confirm Password"
+                    placeholder="**********"
+                  />
+                </View>
+                <TouchableOpacity>
                   <Text style={style.signupText}>
-                    Are you new here? Sign Up
+                    Already Have an account? Sign in
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={style.SignInBtn}>
-                  <Text style={style.signupBtnText}>Sign In</Text>
+                  <Text style={style.signupBtnText}>Sign Up</Text>
                 </TouchableOpacity>
               </View>
-            </TouchableWithoutFeedback>
+            </View>
           </KeyboardAvoidingView>
         </SafeAreaView>
       </>
     );
   }
+
+  // switchSignOncomponent() {
+  //   ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
+  // }
 }
 
 const style = StyleSheet.create({
@@ -59,6 +73,11 @@ const style = StyleSheet.create({
     backgroundColor: '#020049',
     flex: 1,
     flexDirection: 'column',
+    marginLeft: 3,
+    marginRight: 3,
+  },
+  formContainer: {
+    margin: 8,
   },
   SignInContainer: {
     backgroundColor: '#fff',
@@ -66,41 +85,24 @@ const style = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    height: height - height / 3,
+    height: height - 100,
     position: 'absolute',
     borderTopLeftRadius: 58,
     borderTopRightRadius: 58,
-    marginLeft: 10,
-    marginRight: 10,
   },
   signInText: {
     textAlign: 'center',
     color: '#020049',
-    margin: 10,
+    margin: 5,
     fontWeight: 'bold',
-    fontSize: 50,
+    fontSize: 30,
     fontFamily: 'Montserrat',
-  },
-  label: {
-    color: '#1250F3',
-    fontWeight: 'bold',
-    fontSize: 15,
-    fontFamily: 'Montserrat',
-    position: 'absolute',
   },
   input: {
     color: '#020049',
-    fontSize: 20,
+    fontSize: 12,
     fontFamily: 'Montserrat',
-    height: 40,
-    borderStyle: 'solid',
-    borderColor: 'rgb(214, 214, 214);',
-    borderTopWidth: 0,
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
-    borderWidth: 2,
-    padding: 10,
-    position: 'relative',
+    margin: 10,
   },
   textGroup: {
     margin: 10,
@@ -117,7 +119,7 @@ const style = StyleSheet.create({
     borderWidth: 1,
     margin: 10,
     marginTop: 20,
-    padding: 10,
+    padding: 5,
     borderColor: '#1250F3',
     backgroundColor: '#1250F3',
     borderRadius: 50,

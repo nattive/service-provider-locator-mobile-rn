@@ -5,51 +5,166 @@ import {
   View,
   StyleSheet,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   Animated,
   Easing,
+  Dimensions,
 } from 'react-native';
 import WhiteRoundButton from './buttons/WhiteRoundButton';
-class SignOn extends React.Component {
+import SignUp from './SignUp';
+import {Input, Divider} from 'react-native-elements';
+const {height, width} = Dimensions.get('window');
 
+
+type Props = {};
+class SignOn extends React.Component {
+  constructor(props) {
+    super(props);
+    this.yTranslate = new Animated.Value(0);
+    this.signUpTranslate = new Animated.Value(0);
+    this.state = {
+      signUpModalVisible: false,
+      signInModalVisible: false,
+    };
+  }
   render() {
+    let modalMoveY = this.yTranslate.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, -height],
+    });
+    let moveSignUp = this.signUpTranslate.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, -height],
+    });
+
+    let translateSignInStyle = {
+      display: 'none',
+      transform: [{translateY: modalMoveY}],
+    };
+    let translateSignUpStyle = {
+      display: 'none',
+      transform: [{translateY: moveSignUp}],
+    };
     return (
       <>
         <View style={styles.container}>
-          <View style={styles.authBtnContainer}>
-            <Text style={styles.SignOnTxt}>Let's Get Started</Text>
-            <WhiteRoundButton
-              signUpBtnText="Sign in"
-              onClickFunction="undefined"
-            />
-            <TouchableOpacity>
-              <Text style={styles.signUpTxt}>
-                Are you new here? Create an Account
-              </Text>
-            </TouchableOpacity>
-            <View style={styles.orSection}>
-              <Text style={styles.orText}>or</Text>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              this.setState({
+                signUpModalVisible: false,
+                signInModalVisible: false,
+              });
+            }}>
+            <View style={styles.authBtnContainer}>
+              <Text style={styles.SignOnTxt}>Let's Get Started</Text>
+              <WhiteRoundButton
+                signUpBtnText="Sign in"
+                onPress={() => {
+                  this.setState({
+                    signUpModalVisible: false,
+                    signInModalVisible: true,
+                  });
+                }}
+              />
+              <TouchableOpacity
+                onPress={() => {
+                  this.setState({
+                    signUpModalVisible: true,
+                    signInModalVisible: false,
+                  });
+                }}>
+                <Text style={styles.signUpTxt}>
+                  Are you new here? Create an Account
+                </Text>
+              </TouchableOpacity>
+              <View style={styles.orSection}>
+              <Divider />
+                <Text style={styles.orText} />
+              </View>
+              <WhiteRoundButton
+                signUpBtnText="Sign Up with Facebook"
+                onClickFunction="undefined"
+              />
+              <WhiteRoundButton
+                signUpBtnText="Sign Up with Google"
+                onClickFunction="undefined"
+              />
             </View>
-            <WhiteRoundButton
-              signUpBtnText="Sign Up with Facebook"
-              onClickFunction="undefined"
-              icon="()"
-            />
-            <WhiteRoundButton
-              signUpBtnText="Sign Up with Google"
-              onClickFunction="undefined"
-            />
-          </View>
+          </TouchableWithoutFeedback>
         </View>
-        {/* <SignIn style={styles.SignIn} /> */}
+        <Animated.View style={[styles.SignIn, translateSignInStyle]}>
+          <SignIn
+            closeModel={() => {
+              this.state = {
+                signInModalVisible: false,
+              };
+            }}
+          />
+        </Animated.View>
+        <Animated.View style={[styles.SignUp, translateSignUpStyle]}>
+          <SignUp />
+        </Animated.View>
       </>
     );
+  }
+
+  openSignUpModel(prevProps, prevState) {
+    if (this.state.signUpModalVisible) {
+      // animate the showing of the modal
+      this.signUpTranslate.setValue(0); // reset the animated value
+      Animated.spring(this.signUpTranslate, {
+        toValue: 1,
+        friction: 6,
+        useNativeDriver: true,
+      }).start();
+    } else {
+      // animate the hiding of the modal
+      Animated.timing(this.signUpTranslate, {
+        toValue: 0,
+        duration: 200,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }).start();
+    }
+  }
+  openSignInModel(prevProps, prevState) {
+    if (this.state.signInModalVisible) {
+      // animate the showing of the modal
+      this.yTranslate.setValue(0); // reset the animated value
+      Animated.spring(this.yTranslate, {
+        toValue: 1,
+        friction: 6,
+        useNativeDriver: true,
+      }).start();
+    } else {
+      // animate the hiding of the modal
+      Animated.timing(this.yTranslate, {
+        toValue: 0,
+        duration: 200,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }).start();
+    }
+  }
+
+  componentDidUpdate() {
+    this.openSignInModel();
+    this.openSignUpModel();
   }
 }
 
 const styles = StyleSheet.create({
   SignIn: {
     position: 'absolute',
-    display: 'none'
+    height: height,
+    width: width,
+    bottom: -height,
+  },
+  SignUp: {
+    position: 'absolute',
+    height: height,
+    width: width,
+    bottom: -height,
   },
   container: {
     backgroundColor: '#020049',

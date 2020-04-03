@@ -24,27 +24,21 @@ function SlickScreen({navigation}) {
           />
         </View>
         <Slick style={styles.wrapper} showsButtons={false} autoplay={true}>
-          <View>
-            <SliderImage
-              Image={require('../assets/Carousel/slider3.png')}
-              sliderInnerText="Search for your desired service "
-            />
-          </View>
-          <View>
-            <SliderImage
-              Image={require('../assets/Carousel/slider2.png')}
-              sliderInnerText=" We give you the closest and top ranked 
+          <SliderImage
+            Image={require('../assets/Carousel/slider3.png')}
+            sliderInnerText="Search for your desired service "
+          />
+          <SliderImage
+            Image={require('../assets/Carousel/slider2.png')}
+            sliderInnerText=" We give you the closest and top ranked 
 service provider in your area"
-            />
-          </View>
-          <View>
-            <SliderImage
-              Image={require('../assets/Carousel/slider1.png')}
-              sliderInnerText="Connect and contact your desired provider, 
+          />
+          <SliderImage
+            Image={require('../assets/Carousel/slider1.png')}
+            sliderInnerText="Connect and contact your desired provider, 
 you can call, message or locate the office 
 of the provider. All in one app"
-            />
-          </View>
+          />
         </Slick>
 
         <View style={styles.navigationBorder}>
@@ -53,6 +47,7 @@ of the provider. All in one app"
               <Text style={styles.navigationLinksText} />
             </TouchableOpacity>
             <TouchableOpacity
+              style={styles.navigationLinksBtn}
               onPress={() => navigation.navigate('SignOnScreens')}>
               <Text style={styles.navigationLinksText}>Skip</Text>
             </TouchableOpacity>
@@ -80,6 +75,7 @@ export default function SliderScreen({navigation}) {
           name="SignOnScreens"
           component={SignOnScreen}
           options={{headerTitle: 'Sign in'}}
+        //   options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -98,16 +94,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
   },
+  wrapper: {
+    flex: 1,
+    flexDirection: 'column',
+  },
   navigationBorder: {
     borderTopColor: ' rgba(143, 143, 143, 0.151)',
-    padding: 10,
     borderTopWidth: 1,
     borderStyle: 'solid',
-    marginTop: 20,
+    justifyContent: 'flex-end',
+    padding: 10,
+  },
+  navigationLinksBtn: {
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   navigationLinks: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     marginLeft: 30,
     marginRight: 30,
     padding: 5,

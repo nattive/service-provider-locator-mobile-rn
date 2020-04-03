@@ -1,13 +1,12 @@
 import 'react-native-gesture-handler';
 
-
 import React from 'react';
 import Splash from './components/Splash';
 import {Text} from 'react-native';
 import SignOn from './components/SignOn';
 import SliderScreen from './components/SliderScreen';
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor() {
     super();
     this.state = {isLoading: true};
@@ -35,5 +34,3 @@ class App extends React.Component {
     const data = await this.resetLoadingState();
   }
 }
-
-export default App;

@@ -5,7 +5,7 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 export default class WhiteRoundButton extends Component {
   render() {
     return (
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
         <Text style={styles.btnText}>{this.props.signUpBtnText}</Text>
         {this.props.icon && <Text style={styles.icon}>{this.props.icon}</Text>}
       </TouchableOpacity>
@@ -16,15 +16,15 @@ export default class WhiteRoundButton extends Component {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: '#fff',
-    padding: 10,
-    paddingTop: 15,
-    paddingBottom: 15,
-    margin: 10,
+    paddingTop: 2,
+    paddingBottom: 2,
+    margin: 15,
     borderRadius: 50,
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     display: 'flex',
     justifyContent: 'center',
+    alignContent: 'center',
     position: 'relative',
   },
   btnText: {
