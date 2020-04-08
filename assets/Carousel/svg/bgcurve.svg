@@ -1,0 +1,24 @@
+<svg id="Component_4_1" data-name="Component 4 – 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="436" height="847" viewBox="0 0 436 847">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        opacity: 0.46;
+        fill: url(#linear-gradient-2);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#120f82"/>
+      <stop offset="1" stop-color="#020049"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" y1="0.075" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#020049"/>
+      <stop offset="1" stop-color="#020049"/>
+    </linearGradient>
+  </defs>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" width="375" height="819" transform="translate(30)"/>
+  <path id="Path_1" data-name="Path 1" class="cls-2" d="M881.333,346.667S976,292,1053.333,336s176-28,206.667-110.667,36,284,36,284l-17.333,300L1041.333,840,860,828l14.667-442.667-14.667-24Z" transform="translate(-860 7)"/>
+</svg>

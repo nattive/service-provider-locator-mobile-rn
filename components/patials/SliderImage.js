@@ -6,7 +6,7 @@ export default class SliderImage extends Component {
     return (
       <>
         <View style={styles.contents}>
-          <Image style={{width: 276, height: 280, }} source={this.props.Image} />
+          <Image style={{width: 276, height: 280}} source={this.props.Image} />
         </View>
         <Text style={styles.sliderText}>{this.props.sliderInnerText}</Text>
       </>

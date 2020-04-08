@@ -14,44 +14,42 @@ import {
 } from 'react-native';
 
 import {Input, Divider} from 'react-native-elements';
+import {useNavigation} from '@react-navigation/native';
 
 let {height, width} = Dimensions.get('window');
-export default class SignIn extends React.Component {
-  render() {
-    return (
-      <>
-        <SafeAreaView style={style.container}>
-          <StatusBar barStyle="dark-content" />
-          <KeyboardAvoidingView behavior="padding" style={style.container}>
-            <TouchableWithoutFeedback style={style.container}>
-              <View style={style.SignInContainer}>
-                <Text style={style.signInText}>Sign in</Text>
-                <Input
-                  containerStyle={{margin: 10}}
-                  label="Email"
-                  placeholder="eg example@xyz.co"
-                />
-                <Input
-                  containerStyle={{margin: 10}}
-                  label="Password"
-                  secureTextEntry={true}
-                  placeholder="**********"
-                />
-                <TouchableOpacity onPress={this.props.closeModel}>
-                  <Text style={style.signupText}>
-                    Are you new here? Sign Up
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={style.SignInBtn}>
-                  <Text style={style.signupBtnText}>Sign In</Text>
-                </TouchableOpacity>
-              </View>
-            </TouchableWithoutFeedback>
-          </KeyboardAvoidingView>
-        </SafeAreaView>
-      </>
-    );
-  }
+export default function SignIn({nextScreen}) {
+  const navigation = useNavigation();
+  return (
+    <>
+      <SafeAreaView style={style.container}>
+        <StatusBar barStyle="dark-content" />
+        <KeyboardAvoidingView behavior="padding" style={style.container}>
+          <TouchableWithoutFeedback style={style.container}>
+            <View style={style.SignInContainer}>
+              <Text style={style.signInText}>Sign in</Text>
+              <Input
+                containerStyle={{margin: 10}}
+                label="Email"
+                placeholder="eg example@xyz.co"
+              />
+              <Input
+                containerStyle={{margin: 10}}
+                label="Password"
+                secureTextEntry={true}
+                placeholder="**********"
+              />
+              <TouchableOpacity onPress={() => navigation.navigate(nextScreen)}>
+                <Text style={style.signupText}>Are you new here? Sign Up</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={style.SignInBtn}>
+                <Text style={style.signupBtnText}>Sign In</Text>
+              </TouchableOpacity>
+            </View>
+          </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </>
+  );
 }
 
 const style = StyleSheet.create({

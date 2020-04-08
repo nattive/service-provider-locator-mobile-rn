@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {useEffect} from 'react';
 import SignIn from './SignIn';
 import {
@@ -9,17 +10,27 @@ import {
   Animated,
   Easing,
   Dimensions,
+  Alert,
 } from 'react-native';
 import WhiteRoundButton from './buttons/WhiteRoundButton';
 import SignUp from './SignUp';
 import {Input, Divider} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 const {height, width} = Dimensions.get('window');
+import {createStackNavigator} from '@react-navigation/stack';
+
+/*
 
 
-type Props = {};
-class SignOn extends React.Component {
+Program Begins 
+
+*/
+const Stack = createStackNavigator();
+// type Props = {};
+export default class SignOn extends React.Component {
   constructor(props) {
     super(props);
+    this.openSignInModel = this.openSignInModel.bind(this);
     this.yTranslate = new Animated.Value(0);
     this.signUpTranslate = new Animated.Value(0);
     this.state = {
@@ -38,25 +49,24 @@ class SignOn extends React.Component {
     });
 
     let translateSignInStyle = {
-      display: 'none',
       transform: [{translateY: modalMoveY}],
     };
     let translateSignUpStyle = {
-      display: 'none',
       transform: [{translateY: moveSignUp}],
     };
     return (
-      <>
+      <View
+        style={styles.container}
+        onStartShouldSetResponder={() => {
+          this.setState({
+            signUpModalVisible: false,
+            signInModalVisible: false,
+          });
+        }}>
         <View style={styles.container}>
-          <TouchableWithoutFeedback
-            onPress={() => {
-              this.setState({
-                signUpModalVisible: false,
-                signInModalVisible: false,
-              });
-            }}>
+          <TouchableWithoutFeedback>
             <View style={styles.authBtnContainer}>
-              <Text style={styles.SignOnTxt}>Let's Get Started</Text>
+              <Text style={styles.SignOnTxt}> Let 's Get Started</Text>
               <WhiteRoundButton
                 signUpBtnText="Sign in"
                 onPress={() => {
@@ -66,7 +76,7 @@ class SignOn extends React.Component {
                   });
                 }}
               />
-              <TouchableOpacity
+              <TouchableOpacity style={{padding: 10}}
                 onPress={() => {
                   this.setState({
                     signUpModalVisible: true,
@@ -74,37 +84,33 @@ class SignOn extends React.Component {
                   });
                 }}>
                 <Text style={styles.signUpTxt}>
-                  Are you new here? Create an Account
+                  Are you new here ? Create an Account
                 </Text>
               </TouchableOpacity>
               <View style={styles.orSection}>
-              <Divider />
+                <Divider />
                 <Text style={styles.orText} />
               </View>
               <WhiteRoundButton
                 signUpBtnText="Sign Up with Facebook"
+                Icon={<Icon name="facebook-square" size={24} color="black" />}
                 onClickFunction="undefined"
               />
               <WhiteRoundButton
-                signUpBtnText="Sign Up with Google"
+                signUpBtnText="Sign Up with Gmail"
                 onClickFunction="undefined"
+                Icon={<Icon name="google-plus-square" size={24} color="red" />}
               />
             </View>
           </TouchableWithoutFeedback>
         </View>
         <Animated.View style={[styles.SignIn, translateSignInStyle]}>
-          <SignIn
-            closeModel={() => {
-              this.state = {
-                signInModalVisible: false,
-              };
-            }}
-          />
+          <SignIn />
         </Animated.View>
         <Animated.View style={[styles.SignUp, translateSignUpStyle]}>
           <SignUp />
         </Animated.View>
-      </>
+      </View>
     );
   }
 
@@ -154,6 +160,9 @@ class SignOn extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  dNone: {
+    display: 'none',
+  },
   SignIn: {
     position: 'absolute',
     height: height,
@@ -186,20 +195,21 @@ const styles = StyleSheet.create({
   SignOnTxt: {
     textAlign: 'center',
     color: '#fff',
-    margin: 10,
+    margin: 15,
     marginBottom: 20,
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 30,
     fontFamily: 'Montserrat',
   },
   authBtnContainer: {
+    display: 'flex',
+    alignContent: 'center',
     backgroundColor: '#020049',
-    padding: 10,
+    padding: 18,
+    position: 'absolute',
+    bottom: 0,
     left: 0,
     right: 0,
-    bottom: 0,
-    top: 200,
-    height: 350,
   },
   signUpTxt: {
     textAlign: 'center',
@@ -224,4 +234,3 @@ const styles = StyleSheet.create({
     color: '#020049',
   },
 });
-export default SignOn;

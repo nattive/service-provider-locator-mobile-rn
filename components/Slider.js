@@ -8,12 +8,11 @@ import {
   Animated,
 } from 'react-native';
 import Slick from 'react-native-slick';
-import SignOn from './SignOn';
 import SliderImage from './patials/SliderImage';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {useNavigation} from '@react-navigation/native';
 
-function SlickScreen({navigation}) {
+export default function Slider({nextScreen}) {
+  const navigation = useNavigation()
   return (
     <>
       <View style={styles.container}>
@@ -48,7 +47,7 @@ of the provider. All in one app"
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.navigationLinksBtn}
-              onPress={() => navigation.navigate('SignOnScreens')}>
+              onPress={() => navigation.navigate('SignOnScreenScreen')}>
               <Text style={styles.navigationLinksText}>Skip</Text>
             </TouchableOpacity>
           </View>
@@ -58,37 +57,38 @@ of the provider. All in one app"
   );
 }
 
-function SignOnScreen({navigation}) {
-  return <SignOn />;
-}
+// function SignOnScreen({navigation}) {
+//   return <SignOn />;
+// }
 
-export default function SliderScreen({navigation}) {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeSliderScreen">
-        <Stack.Screen
-          name="Slider"
-          component={SlickScreen}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="SignOnScreens"
-          component={SignOnScreen}
-          options={{headerTitle: 'Sign in'}}
-        //   options={{headerShown: false}}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+// unction SliderScreen({navigation}) {
+//   return (
+//     <NavigationContainer>
+//       <Stack.Navigator initialRouteName="HomeSliderScreen">
+//         <Stack.Screen
+//           name="Slider"
+//           component={SlickScreen}
+//           options={{headerShown: false}}
+//         />
+//         <Stack.Screen
+//           name="SignOnScreens"
+//           component={SignOnScreen}
+//           options={{headerTitle: 'Sign in'}}
+//           //   options={{headerShown: false}}
+//         />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// }
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
     alignContent: 'center',
+    backgroundColor: '#fff'
   },
   contents: {
     flexDirection: 'row',

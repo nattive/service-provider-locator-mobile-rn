@@ -2,9 +2,7 @@ import 'react-native-gesture-handler';
 
 import React from 'react';
 import Splash from './components/Splash';
-import {Text} from 'react-native';
-import SignOn from './components/SignOn';
-import SliderScreen from './components/SliderScreen';
+import AuthRouteNavigation from './components/patials/AuthRouteNavigation';
 
 export default class App extends React.Component {
   constructor() {
@@ -16,12 +14,7 @@ export default class App extends React.Component {
     if (this.state.isLoading === true) {
       return <Splash />;
     }
-    return (
-      <>
-        <SliderScreen />
-        {/* <SignOn /> */}
-      </>
-    );
+    return <AuthRouteNavigation />;
   }
 
   resetLoadingState = async () => {

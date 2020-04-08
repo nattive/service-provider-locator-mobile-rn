@@ -3,13 +3,12 @@ import React, {Component} from 'react';
 
 import {
   StyleSheet,
-  Text,
   View,
   Image,
   StatusBar,
   SafeAreaView,
 } from 'react-native';
-
+import {MaterialIndicator} from 'react-native-indicators';
 
 export default class Splash extends Component {
   constructor(props) {
@@ -21,18 +20,13 @@ export default class Splash extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        {/* <LinearGradient colors={['#2974FA', '#38ABFD', '#43D4FF']}
-          style={styles.gradient}></LinearGradient> */}
         <View style={styles.container}>
           <StatusBar barStyle="light-content" />
           <Image
             style={styles.logo}
             source={require('../assets/logo/logo.png')}
           />
-          <View className="sweet-loading">
-            {/* <ClipLoader size={150} color={'#123abc'} loading={true} /> */}
-          </View>
-          <Text style={styles.loadingText}>Loading</Text>
+          <MaterialIndicator color="white" />
         </View>
       </SafeAreaView>
     );
@@ -55,8 +49,9 @@ const styles = StyleSheet.create({
     height: 200,
   },
   loadingText: {
-    fontSize: 16,
+    fontSize: 12,
     color: 'white',
+    margin: 0
   },
   error: {
     color: 'white',
