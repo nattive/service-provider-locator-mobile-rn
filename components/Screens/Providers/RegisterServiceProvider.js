@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Text, View, Image, StyleSheet, ScrollView, Button} from 'react-native';
 import {Input, Divider} from 'react-native-elements';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
-import SmallRoundButton from './buttons/SmallRoundButton';
+import SmallRoundButton from '../../buttons/SmallRoundButton';
 import {useNavigation} from '@react-navigation/native';
 
 export default function RegisterServiceProvider() {

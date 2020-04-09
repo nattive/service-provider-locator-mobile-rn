@@ -13,9 +13,9 @@ import {
 } from 'react-native';
 import {Input, Divider, CheckBox, Avatar} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
-import style from './SignUp';
+import style from '../SignUp';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import SmallRoundButton from './buttons/SmallRoundButton';
+import SmallRoundButton from '../../buttons/SmallRoundButton';
 export default function UserProfileUpdate({navigate}) {
   const navigation = useNavigation();
   return (

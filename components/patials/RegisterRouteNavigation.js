@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import UserProfileUpdate from '../UserProfileUpdate';
-import RegisterServiceProvider from '../RegisterServiceProvider';
+import UserProfileUpdate from '../Screens/Providers/UserProfileUpdate';
+import RegisterServiceProvider from '../Screens/Providers/RegisterServiceProvider';
 
 const UserProfileUpdateScreen = () => <UserProfileUpdate />;
 const RegisterServiceScreen = () => (

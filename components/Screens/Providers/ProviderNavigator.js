@@ -2,11 +2,11 @@ import * as React from 'react';
 import {View, Text} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Dashboard from './Dashboard';
-import Message from './Message';
+import Message from '../../Message';
 import CallHistory from './CallHistory';
 import Wallet from './Wallet';
 import ContactSupport from './ContactSupport';
-import InviteFriends from './InviteFriends';
+import InviteFriends from '../../InviteFriends';
 import drawerContentComponents from './drawerContentComponents'
 
 const Drawer = createDrawerNavigator();

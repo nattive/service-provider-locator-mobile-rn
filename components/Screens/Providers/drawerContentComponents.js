@@ -28,7 +28,7 @@ export default function drawerContentComponents({navigation}) {
             marginTop: 30,
           }}>
           <Image
-            source={require('../assets/images/avatar.png')}
+            source={require('../../../assets/images/avatar.png')}
             style={{
               width: 60,
               height: 60,

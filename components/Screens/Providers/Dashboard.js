@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {SearchBar} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
   TouchableOpacity,
   TouchableNativeFeedback,
@@ -19,11 +19,27 @@ export default function Dashboard({navigation}) {
               alignContent: 'center',
               justifyContent: 'space-between',
             }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignContent: 'center',
+                justifyContent: 'space-between',
+              }}>
+              <TouchableNativeFeedback onPress={() => navigation.openDrawer()}>
+                <Icon name="menu" size={23} color={'#fff'} />
+              </TouchableNativeFeedback>
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: '#fff',
+                  marginLeft: 15,
+                  fontWeight: 'bold',
+                }}>
+                Dashboard
+              </Text>
+            </View>
             <TouchableNativeFeedback onPress={() => navigation.openDrawer()}>
-              <Icon name="navicon" size={23} color={'#fff'} />
-            </TouchableNativeFeedback>
-            <TouchableNativeFeedback onPress={() => navigation.openDrawer()}>
-              <Icon name="ellipsis-v" size={23} color={'#fff'} />
+              <Icon name="more-vert" size={23} color={'#fff'} />
             </TouchableNativeFeedback>
           </View>
         </View>

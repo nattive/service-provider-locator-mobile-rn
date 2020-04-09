@@ -4,12 +4,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {fromLeft} from 'react-navigation-transitions';
 
 import Slider from '../Slider';
-import SignUp from '../SignUp';
-import SignOn from '../SignOn';
-import SignIn from '../SignIn';
-import RegisterServiceProvider from '../RegisterServiceProvider';
-import UserProfileUpdate from '../UserProfileUpdate';
-import ProviderNavigator from '../ProviderNavigator'
+import SignUp from '../Screens/SignUp';
+import SignOn from '../Screens/SignOn';
+import SignIn from '../Screens/SignIn';
+import RegisterServiceProvider from '../Screens/Providers/RegisterServiceProvider';
+import UserProfileUpdate from '../Screens/Providers/UserProfileUpdate';
+import ProviderNavigator from '../Screens/Providers/ProviderNavigator'
+import RegisterUsers from '../Screens/Users/RegisterUsers';
 
 //authRouteNavigation
 
@@ -21,6 +22,7 @@ const SliderScreen = () => <Slider />;
 const SignUpScreen = () => <SignUp />;
 const SignOnScreen = () => <SignOn />;
 const SignInScreen = () => <SignIn />;
+const RegisterUsersScreen = () => <RegisterUsers />;
 const ProviderNavigatorController = () => <ProviderNavigator />
 const UserProfileUpdateScreen = () => <UserProfileUpdate />;
 const RegisterServiceProviderScreen = () => <RegisterServiceProvider />;
@@ -52,6 +54,11 @@ export default function AuthRouteNavigation() {
         <Stack.Screen
           name="RegisterServiceProviderScreen"
           component={RegisterServiceProviderScreen}
+          options={{headerTitle: 'Register'}}
+        />
+        <Stack.Screen
+          name="RegisterUsersScreenScreen"
+          component={RegisterUsersScreen}
           options={{headerTitle: 'Register'}}
         />
         <Stack.Screen

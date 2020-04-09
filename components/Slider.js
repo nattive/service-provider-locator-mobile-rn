@@ -10,6 +10,7 @@ import {
 import Slick from 'react-native-slick';
 import SliderImage from './patials/SliderImage';
 import {useNavigation} from '@react-navigation/native';
+import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 
 export default function Slider({nextScreen}) {
   const navigation = useNavigation()
@@ -42,14 +43,11 @@ of the provider. All in one app"
 
         <View style={styles.navigationBorder}>
           <View style={styles.navigationLinks}>
-            <TouchableOpacity>
-              <Text style={styles.navigationLinksText} />
-            </TouchableOpacity>
-            <TouchableOpacity
+            <TouchableNativeFeedback
               style={styles.navigationLinksBtn}
               onPress={() => navigation.navigate('SignOnScreenScreen')}>
               <Text style={styles.navigationLinksText}>Skip</Text>
-            </TouchableOpacity>
+            </TouchableNativeFeedback>
           </View>
         </View>
       </View>
@@ -106,10 +104,14 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   navigationLinksBtn: {
-    paddingLeft: 20,
-    paddingRight: 20,
+    width: '100%',
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    paddingHorizontal: 50,
+    paddingVertical: 15,
   },
   navigationLinks: {
+    justifyContent: 'center',
     flexDirection: 'row',
     justifyContent: 'flex-end',
     marginLeft: 30,
