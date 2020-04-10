@@ -1,0 +1,21 @@
+{
+  "name": "Akad-backend",
+  "version": "0.0.1",
+  "description": "The backend to test akad(service provider locator) application",
+  "main": "index.js",
+  "author": "Nathaniel E.S (Nattive Inc)",
+  "license": "MIT",
+  "dependencies": {
+    "-": "^0.0.1",
+    "@babel/core": "^7.9.0",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-stage-0": "^7.8.3",
+    "@babel/register": "^7.9.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.3"
+  }
+}

@@ -14,11 +14,13 @@ import {
   Alert,
 } from 'react-native';
 import {Input, CheckBox} from 'react-native-elements';
+import colors from '../styles/colors'
 import {
   ScrollView,
   TouchableNativeFeedback,
 } from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
+import WhiteRoundButton from '../buttons/WhiteRoundButton';
 
 let {height, width} = Dimensions.get('window');
 export default function SignUp({nextScreen}) {
@@ -73,16 +75,21 @@ export default function SignUp({nextScreen}) {
                 onPress={() => setIsUserAccount(prevCount => !prevCount)}
               />
             </View>
-            <TouchableOpacity
-              style={style.SignInBtn}
+            <WhiteRoundButton
+              margin={0}
+              signUpBtnColor={colors.main}
+              signUpBtnText="Sign up"
               onPress={() =>
                 isUserAccount
                   ? navigation.navigate('RegisterUsersScreenScreen')
                   : navigation.navigate('RegisterServiceProviderScreen')
-              }>
-              <Text style={style.signupBtnText}>Sign Up</Text>
-            </TouchableOpacity>
-          </KeyboardAvoidingView>
+              }
+              // Icon={<Icon name="facebook-square" size={20} color={colors.main} />}
+              backgroundColor={colors.main}
+              border={true}
+              color="#fff"
+            />
+            </KeyboardAvoidingView>
         </ScrollView>
       </SafeAreaView>
     </>
@@ -94,9 +101,9 @@ const style = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignContent: 'center',
+    backgroundColor: '#fff',
   },
   SignInContainer: {
-    backgroundColor: '#fff',
     padding: 10,
     left: 0,
     right: 0,
@@ -108,7 +115,7 @@ const style = StyleSheet.create({
   },
   signInText: {
     textAlign: 'center',
-    color: '#020049',
+    color: colors.main,
     margin: 20,
     alignSelf: 'center',
     fontWeight: 'bold',
@@ -144,7 +151,7 @@ const style = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#1250F3',
+    color: colors.main,
   },
   SignInBtn: {
     borderWidth: 1,
@@ -152,7 +159,7 @@ const style = StyleSheet.create({
     marginTop: 20,
     padding: 10,
     borderWidth: 0,
-    backgroundColor: '#1250F3',
+    backgroundColor: colors.main,
     borderRadius: 50,
     elevation: 6,
   },

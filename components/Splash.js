@@ -7,8 +7,11 @@ import {
   Image,
   StatusBar,
   SafeAreaView,
+  ImageBackground,
 } from 'react-native';
 import {MaterialIndicator} from 'react-native-indicators';
+import colors from './styles/colors';
+import {Text} from 'react-native-svg';
 
 export default class Splash extends Component {
   constructor(props) {
@@ -19,39 +22,51 @@ export default class Splash extends Component {
   }
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.container}>
-          <StatusBar barStyle="light-content" />
-          <Image
-            style={styles.logo}
-            source={require('../assets/logo/logo.png')}
-          />
-          <MaterialIndicator color="white" />
-        </View>
-      </SafeAreaView>
+      <>
+        <StatusBar barStyle="light-content" />
+        <ImageBackground
+          source={require('../assets/images/bg.jpg')}
+          style={{
+            flex: 1,
+            resizeMode: 'cover',
+            justifyContent: 'center',
+            height: '100%',
+          }}>
+          <SafeAreaView style={styles.container}>
+            <Image
+              style={styles.logo}
+              source={require('../assets/logo/logoViariant3.png')}
+            />
+            <Text style={styles.loadingText}>Getting Things ready...</Text>
+            <MaterialIndicator color="white" />
+          </SafeAreaView>
+        </ImageBackground>
+      </>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#020049',
+    backgroundColor: '#4c6ec644',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'column',
   },
   title: {
     fontWeight: 'bold',
     fontSize: 166,
   },
   logo: {
-    width: 200,
-    height: 200,
+    width: 150,
+    height: 150,
+    marginTop: 20,
   },
   loadingText: {
     fontSize: 12,
     color: 'white',
-    margin: 0
+    margin: 0,
   },
   error: {
     color: 'white',

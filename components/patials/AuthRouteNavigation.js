@@ -9,9 +9,10 @@ import SignOn from '../Screens/SignOn';
 import SignIn from '../Screens/SignIn';
 import RegisterServiceProvider from '../Screens/Providers/RegisterServiceProvider';
 import UserProfileUpdate from '../Screens/Providers/UserProfileUpdate';
-import ProviderNavigator from '../Screens/Providers/ProviderNavigator'
+import ProviderNavigator from '../Screens/Providers/ProviderNavigator';
 import RegisterUsers from '../Screens/Users/RegisterUsers';
-
+import Welcome from '../Welcome';
+import colors from '../styles//colors'
 //authRouteNavigation
 
 /**
@@ -22,8 +23,9 @@ const SliderScreen = () => <Slider />;
 const SignUpScreen = () => <SignUp />;
 const SignOnScreen = () => <SignOn />;
 const SignInScreen = () => <SignIn />;
+const WelcomeScreen = () => <Welcome />;
 const RegisterUsersScreen = () => <RegisterUsers />;
-const ProviderNavigatorController = () => <ProviderNavigator />
+const ProviderNavigatorController = () => <ProviderNavigator />;
 const UserProfileUpdateScreen = () => <UserProfileUpdate />;
 const RegisterServiceProviderScreen = () => <RegisterServiceProvider />;
 
@@ -35,7 +37,12 @@ const Stack = createStackNavigator();
 export default function AuthRouteNavigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="RegisterServiceScreen">
+      <Stack.Navigator initialRouteName="WelcomeScreen">
+        <Stack.Screen
+          name="WelcomeScreen"
+          component={WelcomeScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="SliderScreenScreen"
           component={SliderScreen}
@@ -54,12 +61,28 @@ export default function AuthRouteNavigation() {
         <Stack.Screen
           name="RegisterServiceProviderScreen"
           component={RegisterServiceProviderScreen}
-          options={{headerTitle: 'Register'}}
+          options={{
+            headerTitle: 'Register',
+            headerStyle: {
+              backgroundColor: colors.main,
+            },
+          }}
         />
         <Stack.Screen
           name="RegisterUsersScreenScreen"
           component={RegisterUsersScreen}
-          options={{headerTitle: 'Register'}}
+          options={{
+            headerTintColor: '#fff',
+            headerTitle: 'Register',
+            headerStyle: {
+              backgroundColor: colors.main,
+            },
+            
+           headerTitleStyle: {
+            fontWeight: 'bold',
+            color: '#fff'
+          },
+          }}
         />
         <Stack.Screen
           name="SignInScreenScreen"

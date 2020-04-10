@@ -5441,6 +5441,11 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-dynamic-search-bar@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-dynamic-search-bar/-/react-native-dynamic-search-bar-0.3.1.tgz#25f8b661816852c710c6b4b8e571dc98532a45fd"
+  integrity sha512-yxuHDQrxSjJbsjAt5tWZn8jKh2evd0FnfPWikuHTuNLJhF0L5yK8vuwKxuYj4keOWydRKiwO69ZNGVaMJhvGCw==
+
 react-native-elements@^1.2.0:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-1.2.7.tgz#1eca2db715c41722aeb67aea62bd2a4621adb134"

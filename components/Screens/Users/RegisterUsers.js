@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F4F4F5',
     flex: 1,
     alignItems: 'center',
+    padding: 15
   },
   Buttons: {
     marginTop: 20,

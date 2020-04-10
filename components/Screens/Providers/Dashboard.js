@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import color from '../../styles/colors'
 import {
   TouchableOpacity,
   TouchableNativeFeedback,
@@ -30,10 +31,10 @@ export default function Dashboard({navigation}) {
               </TouchableNativeFeedback>
               <Text
                 style={{
-                  fontSize: 16,
+                  fontSize: 18,
                   color: '#fff',
                   marginLeft: 15,
-                  fontWeight: 'bold',
+                  fontWeight: '400',
                 }}>
                 Dashboard
               </Text>
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     height: 100,
     width: '100%',
-    backgroundColor: '#1250F3',
+    backgroundColor: color.main,
   },
   context: {
     margin: 5,

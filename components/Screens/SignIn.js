@@ -1,4 +1,5 @@
 import React, {Fragment, useEffect} from 'react';
+import LinearGradient from 'react-native-linear-gradient';
 import {
   StyleSheet,
   View,
@@ -30,8 +31,10 @@ export default function SignIn({nextScreen}) {
     <>
       <SafeAreaView style={style.container}>
         <StatusBar barStyle="light-content" />
-
-        {/* <ImageBackground
+        {/* <LinearGradient
+          colors={['#4c669f', '#3b5998', '#192f6a']}
+          style={style.container}> */}
+          {/* <ImageBackground
           style={{
             flex: 1,
             resizeMode: 'cover',
@@ -39,84 +42,85 @@ export default function SignIn({nextScreen}) {
             height: '100%',
           }}
           source={require('../../assets/images/bg.jpg')}> */}
-        <KeyboardAvoidingView
-          behavior="height"
-          style={style.container}
-          enabled>
-          <View style={{backgroundColor: '#050339de', height: '100%'}}>
-            <ScrollView style={style.SignInContainer}>
-              <Text style={style.signInText}>Welcome back!</Text>
-              <Input
-                labelStyle={style.label}
-                inputStyle={{textAlign: 'center', color: '#fff'}}
-                placeholderTextColor="#dddce0"
-                containerStyle={{margin: 5}}
-                label="Email"
-                placeholder="Email Address"
-              />
-              <Input
-                labelStyle={style.label}
-                inputStyle={{textAlign: 'center', color: '#fff'}}
-                placeholderTextColor="#dddce0"
-                containerStyle={{margin: 5}}
-                label="Password"
-                secureTextEntry={true}
-                placeholder="Input Password"
-              />
-              <TouchableOpacity
-                onPress={() => navigation.navigate(nextScreen)}
-              />
-              <TouchableNativeFeedback style={style.SignInBtn}>
-                <Text style={style.signupBtnText}>Sign In</Text>
-              </TouchableNativeFeedback>
-
-              <View
-                style={{
-                  flex: 1,
-                  alignContent: 'flex-end',
-                  justifyContent: 'center',
-                  flexDirection: 'column',
-                  marginTop: 30,
-                }}>
-                {/* <Divider style={{margin: 15}} /> */}
-                <Text
-                  style={{
-                    textAlign: 'center',
-                    fontFamily: 'Montserrat',
-                    color: '#fff',
-                    fontSize: 18,
-                    margin: 5,
-                  }}>
-                  Or Sign in With
-                </Text>
+          <KeyboardAvoidingView
+            behavior="height"
+            style={style.container}
+            enabled>
+            <View style={{backgroundColor: '#050339de', height: '100%'}}>
+              <ScrollView style={style.SignInContainer}>
+                <Text style={style.signInText}>Welcome back!</Text>
+                <Input
+                  labelStyle={style.label}
+                  inputStyle={{textAlign: 'center', color: '#fff'}}
+                  placeholderTextColor="#dddce0"
+                  containerStyle={{margin: 5}}
+                  label="Email"
+                  placeholder="Email Address"
+                />
+                <Input
+                  labelStyle={style.label}
+                  inputStyle={{textAlign: 'center', color: '#fff'}}
+                  placeholderTextColor="#dddce0"
+                  containerStyle={{margin: 5}}
+                  label="Password"
+                  secureTextEntry={true}
+                  placeholder="Input Password"
+                />
+                <TouchableOpacity
+                  onPress={() => navigation.navigate(nextScreen)}
+                />
+                <TouchableNativeFeedback style={style.SignInBtn}>
+                  <Text style={style.signupBtnText}>Sign In</Text>
+                </TouchableNativeFeedback>
 
                 <View
                   style={{
-                    flexDirection: 'row',
+                    flex: 1,
+                    alignContent: 'flex-end',
                     justifyContent: 'center',
+                    flexDirection: 'column',
+                    marginTop: 30,
                   }}>
-                  <TouchableNativeFeedback>
-                    <Icon
-                      name="facebook-square"
-                      style={{padding: 5}}
-                      size={35}
-                      color="#fff"
-                    />
-                  </TouchableNativeFeedback>
-                  <TouchableNativeFeedback>
-                    <Icon
-                      name="google-plus-square"
-                      style={{padding: 5}}
-                      size={35}
-                      color="#fff"
-                    />
-                  </TouchableNativeFeedback>
+                  {/* <Divider style={{margin: 15}} /> */}
+                  <Text
+                    style={{
+                      textAlign: 'center',
+                      fontFamily: 'Montserrat',
+                      color: '#fff',
+                      fontSize: 18,
+                      margin: 5,
+                    }}>
+                    Or Sign in With
+                  </Text>
+
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                    }}>
+                    <TouchableNativeFeedback>
+                      <Icon
+                        name="facebook-square"
+                        style={{padding: 5}}
+                        size={35}
+                        color="#fff"
+                      />
+                    </TouchableNativeFeedback>
+                    <TouchableNativeFeedback>
+                      <Icon
+                        name="google-plus-square"
+                        style={{padding: 5}}
+                        size={35}
+                        color="#fff"
+                      />
+                    </TouchableNativeFeedback>
+                  </View>
                 </View>
-              </View>
-            </ScrollView>
-          </View>
-        </KeyboardAvoidingView>
-        {/* </ImageBackground> */}
+              </ScrollView>
+            </View>
+          </KeyboardAvoidingView>
+          {/* </ImageBackground> */}
+        {/* </LinearGradient> */}
       </SafeAreaView>
     </>
   );
